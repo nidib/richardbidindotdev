@@ -1,0 +1,27 @@
+name: Node.js CI
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches: ['main']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.11.0'
+      - name: Install dependencies
+        run: npm ci
+      - name: Lint
+        run: npm run lint
+      - name: Compile TypeScript
+        run: npm run compile
+      - name: Unit tests
+        run: npm run test --if-present
+      - name: Build test
+        run: npm run build
