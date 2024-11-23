@@ -7,7 +7,7 @@ on:
     branches: ['main']
 
 jobs:
-  build:
+  ci:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -25,3 +25,18 @@ jobs:
         run: npm run test --if-present
       - name: Build test
         run: npm run build
+  cd:
+    needs: ci
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v4
+        - name: Trigger deploy
+            run: |
+                curl -X 'POST' \
+                '${{ secrets.DEPLOY_URL }}' \
+                -H 'accept: application/json' \
+                -H 'Content-Type: application/json' \
+                -H 'Authorization: Bearer ${{ secrets.DEPLOY_TOKEN }}' \
+                -d '{
+                    "applicationId": "${{ secrets.DEPLOY_APP_ID }}"
+                }'
