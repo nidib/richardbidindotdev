@@ -1,25 +1,31 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { headers } from 'next/headers';
 
 const title = 'Richard Bidin';
 const description =
 	'Senior Full Stack Engineer with a passion for creating exceptional developer and user experiences.';
 
-export const metadata: Metadata = {
-	title,
-	description,
-	openGraph: {
-		description,
+export async function generateMetadata(): Promise<Metadata> {
+	const host = (await headers()).get('host');
+
+	return {
+		metadataBase: new URL(`https://${host}`),
 		title,
-		images: ['preview.png'],
-		url: 'https://richardbidin.dev',
-	},
-	icons: ['favicon.png'],
-	robots: {
-		index: false,
-		follow: false,
-	},
-};
+		description,
+		openGraph: {
+			description,
+			title,
+			images: ['preview.png'],
+			url: 'https://richardbidin.dev',
+		},
+		icons: ['favicon.png'],
+		robots: {
+			index: false,
+			follow: false,
+		},
+	};
+}
 
 type Props = Readonly<{
 	children: React.ReactNode;
