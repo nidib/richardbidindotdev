@@ -32,4 +32,5 @@ body {
 	color: var(--foreground);
 	background: var(--background);
 	font-family: sans-serif;
+	font-variant-ligatures: none;
 }

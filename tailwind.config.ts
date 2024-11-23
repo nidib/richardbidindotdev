@@ -12,6 +12,9 @@ export default {
 				background: 'var(--background)',
 				foreground: 'var(--foreground)',
 			},
+			fontFamily: {
+				jetmono: ['var(--font-jetmono)'],
+			},
 			animation: {
 				blink: 'blink 1.3s steps(1, start) infinite',
 			},

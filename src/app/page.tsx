@@ -5,7 +5,10 @@ export default function Home() {
 	return (
 		<div>
 			<main className="h-[70dvh] flex items-center justify-center">
-				<h1 className="text-xl font-mono">coming soon.</h1>
+				<h1 className="text-xl">
+					<span className="text-yellow-500">{'<'}</span>coming soon
+					<span className="text-yellow-500">{' />'}</span>
+				</h1>
 				<Caret />
 			</main>
 			<footer className="h-[30dvh] flex flex-col gap-2 justify-start items-center">

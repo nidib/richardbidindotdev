@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
-import './globals.css';
+import { JetBrains_Mono } from 'next/font/google';
 import { headers } from 'next/headers';
+import './globals.css';
 
 const title = 'Richard Bidin';
 const description =
@@ -27,6 +28,12 @@ export async function generateMetadata(): Promise<Metadata> {
 	};
 }
 
+const jetBrainsMono = JetBrains_Mono({
+	subsets: ['latin'],
+	variable: '--font-jetmono',
+	fallback: ['monospace'],
+});
+
 type Props = Readonly<{
 	children: React.ReactNode;
 }>;
@@ -34,7 +41,9 @@ type Props = Readonly<{
 export default function RootLayout({ children }: Props) {
 	return (
 		<html lang="pt-BR">
-			<body className="antialiased">{children}</body>
+			<body className={`${jetBrainsMono.variable} antialiased font-jetmono`}>
+				{children}
+			</body>
 		</html>
 	);
 }
