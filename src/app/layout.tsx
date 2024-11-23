@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 	openGraph: {
 		description,
 		title,
-		siteName: 'richardbidin.dev',
+		url: 'https://richardbidin.dev',
 	},
 	icons: ['favicon.png'],
 	robots: {
