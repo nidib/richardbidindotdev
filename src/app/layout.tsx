@@ -1,8 +1,12 @@
-import type { Metadata } from "next";
-import "./globals.css";
+import type { Metadata } from 'next';
+import './globals.css';
 
 export const metadata: Metadata = {
-	title: "Richard Bidin",
+	title: 'Richard Bidin',
+	robots: {
+		index: false,
+		follow: false,
+	},
 };
 
 type Props = Readonly<{
