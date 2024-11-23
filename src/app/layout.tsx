@@ -3,6 +3,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
 	title: 'Richard Bidin',
+	icons: ['favicon.png'],
 	robots: {
 		index: false,
 		follow: false,
