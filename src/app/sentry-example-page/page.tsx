@@ -1,7 +1,11 @@
 'use client';
 
+import { useEffect } from 'react';
+
 export default function Foo() {
-	// @ts-ignore
-	window.notReal();
+	useEffect(() => {
+		// @ts-ignore
+		window.notReal();
+	}, []);
 	return <p>hello</p>;
 }
