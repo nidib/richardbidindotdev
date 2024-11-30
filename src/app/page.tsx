@@ -1,5 +1,5 @@
-import { Caret } from 'src/app/components/caret';
-import { Link } from 'src/app/components/link';
+import { Caret } from 'src/app/_components/caret';
+import { Link } from 'src/app/_components/link';
 
 export default function Home() {
 	return (
